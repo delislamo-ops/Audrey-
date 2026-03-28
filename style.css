@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0b0b12, #1a1a2e);
+  color: #f1f1f5;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(90deg, #16213e, #533483);
+  box-shadow: 0 5px 25px rgba(0,0,0,0.6);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.8em;
+}
+
+header p {
+  opacity: 0.8;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* CARDS */
+.card {
+  text-decoration: none;
+  color: white;
+  background: rgba(255,255,255,0.05);
+  padding: 25px;
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  transition: 0.3s;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  background: rgba(83,52,131,0.4);
+}
+
+/* RECIPE PAGE */
+.recipe {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.recipe h2 {
+  margin-top: 0;
+}
+
+.section {
+  margin: 25px 0;
+}
+
+.section h3 {
+  color: #b39cff;
+}
+
+ul {
+  line-height: 1.7;
+}
