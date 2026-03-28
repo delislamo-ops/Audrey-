@@ -1,70 +1,75 @@
-body {
+* {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #0b0b12, #1a1a2e);
-  color: #f1f1f5;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* HEADER */
+body {
+  font-family: Arial, sans-serif;
+  background: #0b0f1a;
+  color: #eae6ff;
+}
+
 header {
   text-align: center;
-  padding: 40px 20px;
-  background: linear-gradient(90deg, #16213e, #533483);
-  box-shadow: 0 5px 25px rgba(0,0,0,0.6);
+  padding: 25px;
+  background: #141a2a;
+  border-bottom: 2px solid #6c5ce7;
 }
 
 header h1 {
-  margin: 0;
-  font-size: 2.8em;
+  color: #a29bfe;
 }
 
-header p {
-  opacity: 0.8;
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 30px auto;
 }
 
-/* GRID */
-.grid {
-  display: grid;
-  gap: 20px;
-  padding: 20px;
-}
-
-/* CARDS */
+/* RECIPE CARDS */
 .card {
+  display: block;
+  background: #141a2a;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
   text-decoration: none;
   color: white;
-  background: rgba(255,255,255,0.05);
-  padding: 25px;
-  border-radius: 18px;
-  backdrop-filter: blur(12px);
-  transition: 0.3s;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid #2d2f55;
+  transition: 0.2s;
 }
 
 .card:hover {
-  transform: translateY(-5px) scale(1.02);
-  background: rgba(83,52,131,0.4);
+  transform: scale(1.02);
+  border-color: #6c5ce7;
 }
 
 /* RECIPE PAGE */
 .recipe {
-  max-width: 800px;
-  margin: auto;
+  background: #141a2a;
   padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #2d2f55;
 }
 
 .recipe h2 {
-  margin-top: 0;
-}
-
-.section {
-  margin: 25px 0;
-}
-
-.section h3 {
-  color: #b39cff;
+  color: #a29bfe;
+  margin-top: 15px;
 }
 
 ul {
-  line-height: 1.7;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 20px;
+  color: #a29bfe;
+  text-decoration: none;
+}
+
+.back:hover {
+  text-decoration: underline;
 }
