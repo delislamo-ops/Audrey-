@@ -37,7 +37,7 @@
     .hero {
       text-align: center;
       padding: 80px 20px;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1600&q=80');
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?auto=format&fit=crop&w=1200&q=80');
       background-size: cover;
       background-position: center;
       color: white;
@@ -65,7 +65,6 @@
       color: white;
       border-radius: 0 25px 25px 0;
       cursor: pointer;
-      font-size: 1.2rem;
     }
 
     /* GRID LAYOUT */
@@ -76,7 +75,6 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 30px;
-      min-height: 400px;
     }
 
     /* CARD STYLING */
@@ -88,19 +86,35 @@
       color: inherit;
       box-shadow: var(--shadow);
       transition: all 0.3s ease;
-      display: block; /* Required for the filter visibility */
+      position: relative;
     }
     
-    .card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+    .card:hover { transform: translateY(-8px); }
     .card img { width: 100%; height: 220px; object-fit: cover; }
+    
     .card-content { padding: 20px; }
     .card-content h2 { font-size: 1.3rem; margin-bottom: 8px; color: var(--dark); }
     .card-content p { font-size: 0.95rem; color: #747d8c; }
 
-    /* FOOTER */
-    .footer { text-align: center; padding: 40px; background: var(--dark); color: white; margin-top: 50px; }
+    .fav-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(255,255,255,0.8);
+      border: none;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+    .fav-btn:hover { background: var(--white); transform: scale(1.1); }
 
-    /* UTILITY */
+    .footer { text-align: center; padding: 40px; background: var(--dark); color: white; margin-top: 50px; }
     .hidden { display: none; }
   </style>
 </head>
@@ -119,43 +133,55 @@
     <h1>Discover Delicious Recipes</h1>
     <p>Simple, tasty, and made for everyone</p>
     <div class="search-box">
-      <input type="text" id="recipeSearch" placeholder="Search recipes (e.g. 'Fish' or 'Cake')..." aria-label="Search recipes">
+      <input type="text" id="recipeSearch" placeholder="Search recipes..." aria-label="Search recipes">
       <button type="button">🔍</button>
     </div>
   </header>
 
   <main class="container" id="recipeGrid">
-    <a class="card" href="./mac-and-cheese.html">
-      <img src="1000030317.png" alt="Mac and Cheese">
-      <div class="card-content">
-        <h2 class="recipe-title">Mac & Cheese</h2>
-        <p>Creamy baked pasta with rich cheese sauce</p>
-      </div>
-    </a>
+    <div class="card">
+      <button class="fav-btn">🤍</button>
+      <a href="./mac-and-cheese.html" style="text-decoration:none; color:inherit;">
+        <img src="https://Picsart_26-03-26_14-47-04-099.png/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=500&q=80" alt="Mac and Cheese">
+        <div class="card-content">
+          <h2 class="recipe-title">Mac & Cheese</h2>
+          <p>Creamy baked pasta with rich cheese sauce</p>
+        </div>
+      </a>
+    </div>
 
-    <a class="card" href="./seared-fish.html">
-      <img src="1000030315.png" alt="Seared Fish Fillet">
-      <div class="card-content">
-        <h2 class="recipe-title">Seared Fish Fillet</h2>
-        <p>Crispy outside, tender inside</p>
-      </div>
-    </a>
+    <div class="card">
+      <button class="fav-btn">🤍</button>
+      <a href="./seared-fish.html" style="text-decoration:none; color:inherit;">
+        <img src="https://Picsart_26-03-26_16-51-30-284.png/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=500&q=80" alt="Seared Fish">
+        <div class="card-content">
+          <h2 class="recipe-title">Seared Fish Fillet</h2>
+          <p>Crispy outside, tender inside</p>
+        </div>
+      </a>
+    </div>
 
-    <a class="card" href="./chocolate-cake.html">
-      <img src="1000030313.png" alt="Chocolate Cake">
-      <div class="card-content">
-        <h2 class="recipe-title">Chocolate Cake</h2>
-        <p>Rich, moist chocolate dessert</p>
-      </div>
-    </a>
+    <div class="card">
+      <button class="fav-btn">🤍</button>
+      <a href="./chocolate-cake.html" style="text-decoration:none; color:inherit;">
+        <img src="https://1774530949132.png/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80" alt="Chocolate Cake">
+        <div class="card-content">
+          <h2 class="recipe-title">Chocolate Cake</h2>
+          <p>Rich, moist chocolate dessert</p>
+        </div>
+      </a>
+    </div>
 
-    <a class="card" href="./pan-seared-chicken.html">
-      <img src="1000030314.png" alt="Pan Seared Chicken">
-      <div class="card-content">
-        <h2 class="recipe-title">Pan Seared Chicken</h2>
-        <p>Golden crust, juicy inside</p>
-      </div>
-    </a>
+    <div class="card">
+      <button class="fav-btn">🤍</button>
+      <a href="./pan-seared-chicken.html" style="text-decoration:none; color:inherit;">
+        <img src="https://Picsart_26-03-26_18-17-51-307.jpg/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=500&q=80" alt="Seared Chicken">
+        <div class="card-content">
+          <h2 class="recipe-title">Pan Seared Chicken</h2>
+          <p>Golden crust, juicy inside</p>
+        </div>
+      </a>
+    </div>
   </main>
 
   <footer class="footer">
@@ -163,22 +189,26 @@
   </footer>
 
   <script>
+    // Search Filter Logic
     const searchInput = document.getElementById('recipeSearch');
     const cards = document.querySelectorAll('.card');
 
     searchInput.addEventListener('input', (e) => {
       const searchValue = e.target.value.toLowerCase();
-
       cards.forEach(card => {
         const title = card.querySelector('.recipe-title').innerText.toLowerCase();
-        const description = card.querySelector('p').innerText.toLowerCase();
-        
-        // If the title or description matches the search, show it; otherwise, hide it
-        if (title.includes(searchValue) || description.includes(searchValue)) {
+        if (title.includes(searchValue)) {
           card.classList.remove('hidden');
         } else {
           card.classList.add('hidden');
         }
+      });
+    });
+
+    // Simple Favorite Toggle Logic
+    document.querySelectorAll('.fav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.innerText = btn.innerText === '🤍' ? '❤️' : '🤍';
       });
     });
   </script>
