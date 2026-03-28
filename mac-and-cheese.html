@@ -1,46 +1,102 @@
-<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Ultimate Mac & Cheese</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Inline styles to ensure the fade effect works immediately */
+    .recipe-hero {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      background: #1a1a1a;
+    }
 
-<div class="hero-container">
-  <div class="hero-image" style="background-image: url('Bluetooth/Picsart_26-03-26_14-47-04-099.png');"></div>
-  <div class="hero-overlay">
-    <h1>Classic Baked Mac & Cheese</h1>
-    <p>The ultimate comfort food with a golden, bubbly crust.</p>
+    .recipe-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* The initial "Cool" entrance */
+      animation: fadeInScale 1.8s ease-out;
+    }
+
+    /* The Fade-Away Gradient Overlay */
+    .recipe-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(to bottom, transparent, #1a1a1a);
+    }
+
+    @keyframes fadeInScale {
+      0% { opacity: 0; transform: scale(1.1); filter: blur(5px); }
+      100% { opacity: 1; transform: scale(1); filter: blur(0); }
+    }
+
+    .recipe-content {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .step-number {
+      color: #e67e22;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body style="margin:0; background:#1a1a1a; color:#eee; font-family: sans-serif;">
+
+  <div class="recipe-hero">
+    <img src="Bluetooth/Picsart_26-03-26_14-47-04-099.png" alt="Golden Mac and Cheese">
   </div>
-</div>
 
-<div class="container recipe-content">
-  <section class="ingredients">
+  <div class="recipe-content">
+    <header>
+      <h1 style="font-size: 3rem; margin-bottom: 10px;">The Ultimate Mac & Cheese</h1>
+      <p style="color: #999; font-style: italic;">Extra creamy, triple-cheese, and baked to perfection.</p>
+    </header>
+
+    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+
     <h2>Ingredients</h2>
-    <div class="ingredients-grid">
-      <ul>
-        <li><strong>1 lb</strong> Elbow Macaroni</li>
-        <li><strong>1/2 cup</strong> Unsalted Butter</li>
-        <li><strong>1/2 cup</strong> All-purpose Flour</li>
-        <li><strong>3 cups</strong> Whole Milk (warm)</li>
-      </ul>
-      <ul>
-        <li><strong>4 cups</strong> Sharp Cheddar (grated)</li>
-        <li><strong>1 cup</strong> Gruyère or Jack Cheese</li>
-        <li><strong>1 tsp</strong> Smoked Paprika</li>
-        <li><strong>1/2 tsp</strong> Garlic Powder</li>
-      </ul>
+    <ul style="column-count: 2; list-style-type: square; color: #ccc;">
+      <li>16 oz Elbow Macaroni</li>
+      <li>1/2 cup Unsalted Butter</li>
+      <li>1/2 cup All-purpose Flour</li>
+      <li>3 cups Whole Milk</li>
+      <li>1 cup Heavy Cream</li>
+      <li>4 cups Sharp Cheddar (grated)</li>
+      <li>2 cups Gruyère Cheese</li>
+      <li>1 tsp Smoked Paprika</li>
+      <li>Salt & Black Pepper</li>
+      <li>Panko Breadcrumbs (for topping)</li>
+    </ul>
+
+    <h2>The Process</h2>
+    <div class="steps" style="line-height: 1.8;">
+      <p><span class="step-number">01.</span> <strong>Prep the Pasta:</strong> Boil the macaroni in heavily salted water. Aim for "slightly underdone" (about 2 minutes less than the box says). They will finish cooking in the oven.</p>
+      
+      <p><span class="step-number">02.</span> <strong>The Golden Roux:</strong> Melt butter in a large pot over medium heat. Whisk in the flour and cook for 2 minutes until it smells like toasted cookies. This prevents a "floury" taste.</p>
+      
+      <p><span class="step-number">03.</span> <strong>Build the Sauce:</strong> Slowly pour in the milk and heavy cream while whisking constantly. Simmer until the sauce is thick enough to coat the back of a spoon.</p>
+      
+      <p><span class="step-number">04.</span> <strong>The Melt:</strong> Turn off the heat. Stir in 5 cups of the cheese (save 1 cup for the top) until the sauce is a smooth, velvet river of gold.</p>
+      
+      <p><span class="step-number">05.</span> <strong>The Bake:</strong> Fold the pasta into the sauce. Pour into a baking dish, top with remaining cheese and panko. Bake at 375°F for 20 minutes until the top is bubbling and crispy.</p>
     </div>
-  </section>
 
-  <hr>
-
-  <section class="steps">
-    <h2>Instructions</h2>
-    <ol>
-      <li><strong>Boil:</strong> Cook pasta in heavily salted water for 2 minutes less than the package directions. Drain and toss with a splash of oil to prevent sticking.</li>
-      <li><strong>The Roux:</strong> In a large heavy saucepan, melt butter over medium heat. Whisk in flour and cook for 1-2 minutes until it smells slightly nutty but hasn't browned.</li>
-      <li><strong>The Sauce:</strong> Slowly stream in milk while whisking constantly. Simmer until the sauce thickens enough to coat the back of a spoon.</li>
-      <li><strong>The Cheese:</strong> Remove from heat. Fold in 3 cups of cheese and spices. Stir until completely smooth and velvety.</li>
-      <li><strong>Bake:</strong> Fold the pasta into the sauce. Pour into a greased baking dish and top with the remaining cheese. Bake at 375°F (190°C) for 20 minutes until the top is golden and bubbling.</li>
-    </ol>
-  </section>
-
-  <a href="index.html" class="back-btn">View All Recipes</a>
-</div>
+    <div style="margin-top: 50px;">
+      <a href="index.html" class="back" style="color: #e67e22; text-decoration: none;">⬅ Back to Home</a>
+    </div>
+  </div>
 
 </body>
+</html>
