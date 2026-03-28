@@ -37,6 +37,7 @@
     .hero {
       text-align: center;
       padding: 80px 20px;
+      background: #2f3542; /* Dark backup color */
       background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?auto=format&fit=crop&w=1200&q=80');
       background-size: cover;
       background-position: center;
@@ -87,10 +88,12 @@
       box-shadow: var(--shadow);
       transition: all 0.3s ease;
       position: relative;
+      display: flex;
+      flex-direction: column;
     }
     
     .card:hover { transform: translateY(-8px); }
-    .card img { width: 100%; height: 220px; object-fit: cover; }
+    .card img { width: 100%; height: 220px; object-fit: cover; background: #ddd; }
     
     .card-content { padding: 20px; }
     .card-content h2 { font-size: 1.3rem; margin-bottom: 8px; color: var(--dark); }
@@ -100,7 +103,7 @@
       position: absolute;
       top: 15px;
       right: 15px;
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.9);
       border: none;
       border-radius: 50%;
       width: 35px;
@@ -110,9 +113,8 @@
       align-items: center;
       justify-content: center;
       font-size: 1.2rem;
-      transition: 0.3s;
+      z-index: 2;
     }
-    .fav-btn:hover { background: var(--white); transform: scale(1.1); }
 
     .footer { text-align: center; padding: 40px; background: var(--dark); color: white; margin-top: 50px; }
     .hidden { display: none; }
@@ -139,10 +141,11 @@
   </header>
 
   <main class="container" id="recipeGrid">
+    
     <div class="card">
       <button class="fav-btn">🤍</button>
       <a href="./mac-and-cheese.html" style="text-decoration:none; color:inherit;">
-        <img src="https://Picsart_26-03-26_14-47-04-099.png/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=500&q=80" alt="Mac and Cheese">
+        <img src="Picsart_26-03-26_14-47-04-099.png" alt="Mac and Cheese">
         <div class="card-content">
           <h2 class="recipe-title">Mac & Cheese</h2>
           <p>Creamy baked pasta with rich cheese sauce</p>
@@ -153,7 +156,7 @@
     <div class="card">
       <button class="fav-btn">🤍</button>
       <a href="./seared-fish.html" style="text-decoration:none; color:inherit;">
-        <img src="https://Picsart_26-03-26_16-51-30-284.png/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=500&q=80" alt="Seared Fish">
+        <img src="Picsart_26-03-26_16-51-30-284.png" alt="Seared Fish Fillet">
         <div class="card-content">
           <h2 class="recipe-title">Seared Fish Fillet</h2>
           <p>Crispy outside, tender inside</p>
@@ -163,8 +166,19 @@
 
     <div class="card">
       <button class="fav-btn">🤍</button>
+      <a href="./pan-seared-chicken.html" style="text-decoration:none; color:inherit;">
+        <img src="Picsart_26-03-26_18-17-51-307.jpg" alt="Crispy Chicken">
+        <div class="card-content">
+          <h2 class="recipe-title">Crispy Chicken</h2>
+          <p>Golden crust, juicy inside</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="card">
+      <button class="fav-btn">🤍</button>
       <a href="./chocolate-cake.html" style="text-decoration:none; color:inherit;">
-        <img src="https://1774530949132.png/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80" alt="Chocolate Cake">
+        <img src="1774530949132.png" alt="Chocolate Cake">
         <div class="card-content">
           <h2 class="recipe-title">Chocolate Cake</h2>
           <p>Rich, moist chocolate dessert</p>
@@ -172,16 +186,6 @@
       </a>
     </div>
 
-    <div class="card">
-      <button class="fav-btn">🤍</button>
-      <a href="./pan-seared-chicken.html" style="text-decoration:none; color:inherit;">
-        <img src="https://Picsart_26-03-26_18-17-51-307.jpg/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=500&q=80" alt="Seared Chicken">
-        <div class="card-content">
-          <h2 class="recipe-title">Pan Seared Chicken</h2>
-          <p>Golden crust, juicy inside</p>
-        </div>
-      </a>
-    </div>
   </main>
 
   <footer class="footer">
@@ -189,7 +193,7 @@
   </footer>
 
   <script>
-    // Search Filter Logic
+    // Real-time Search Logic
     const searchInput = document.getElementById('recipeSearch');
     const cards = document.querySelectorAll('.card');
 
@@ -205,7 +209,7 @@
       });
     });
 
-    // Simple Favorite Toggle Logic
+    // Favorite Toggle Logic
     document.querySelectorAll('.fav-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         btn.innerText = btn.innerText === '🤍' ? '❤️' : '🤍';
