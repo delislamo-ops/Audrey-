@@ -5,61 +5,152 @@
   box-sizing: border-box;
 }
 
-/* GLOBAL */
-body {
-  font-family: "Inter", Arial, sans-serif;
-  background: radial-gradient(circle at top, #141a2a, #0b0f1a 70%);
-  color: #eae6ff;
-  line-height: 1.6;
-  letter-spacing: 0.3px;
+/* ROOT DESIGN TOKENS */
+:root {
+  --bg-dark: #0b0f1a;
+  --bg-card: #141a2a;
+  --primary: #6c5ce7;
+  --secondary: #a29bfe;
+  --text: #eae6ff;
+  --glass: rgba(20, 26, 42, 0.6);
 }
 
-/* HEADER */
-header {
-  text-align: center;
-  padding: 30px 20px;
-  background: rgba(20, 26, 42, 0.6);
+/* BODY */
+body {
+  font-family: "Inter", sans-serif;
+  background: radial-gradient(circle at top, #141a2a, #0b0f1a 70%);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ANIMATED BACKGROUND GRID */
+body::after {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(108, 92, 231, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: moveBg 40s linear infinite;
+  z-index: -1;
+}
+
+@keyframes moveBg {
+  to {
+    transform: translate(40px, 40px);
+  }
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: var(--glass);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(108, 92, 231, 0.3);
-  box-shadow: 0 0 25px rgba(108, 92, 231, 0.1);
+  box-shadow: 0 0 20px rgba(108, 92, 231, 0.1);
 }
 
-header h1 {
-  color: #a29bfe;
-  font-size: 2rem;
-  letter-spacing: 1px;
-  text-shadow: 0 0 10px rgba(162, 155, 254, 0.4);
+.logo {
+  font-size: 1.5rem;
+  color: var(--secondary);
+  text-shadow: 0 0 10px rgba(162, 155, 254, 0.5);
 }
 
-/* CONTAINER */
+/* NAV LINKS */
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--text);
+  position: relative;
+  transition: 0.3s;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: var(--primary);
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* SEARCH BAR */
+.search-box {
+  margin: 30px auto;
+  max-width: 500px;
+  display: flex;
+  background: var(--glass);
+  border-radius: 12px;
+  padding: 8px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(108, 92, 231, 0.2);
+}
+
+.search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 10px;
+  outline: none;
+}
+
+.search-box button {
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-box button:hover {
+  transform: scale(1.05);
+}
+
+/* CONTAINER GRID */
 .container {
   width: 90%;
-  max-width: 950px;
-  margin: 40px auto;
+  max-width: 1100px;
+  margin: 30px auto;
   display: grid;
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
 }
 
-/* RECIPE CARDS */
+/* 3D CARD */
 .card {
-  display: block;
   background: linear-gradient(145deg, #141a2a, #101425);
-  padding: 18px;
-  border-radius: 16px;
-  text-decoration: none;
-  color: white;
-  border: 1px solid rgba(108, 92, 231, 0.15);
-  transition: all 0.3s ease;
+  padding: 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(108, 92, 231, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  cursor: pointer;
   position: relative;
   overflow: hidden;
 }
 
-/* Glow effect */
+/* Glow sweep */
 .card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent, rgba(108, 92, 231, 0.2), transparent);
+  background: linear-gradient(120deg, transparent, rgba(108, 92, 231, 0.25), transparent);
   opacity: 0;
   transition: 0.4s;
 }
@@ -68,80 +159,53 @@ header h1 {
   opacity: 1;
 }
 
-/* Hover lift */
+/* 3D tilt */
 .card:hover {
-  transform: translateY(-5px) scale(1.01);
-  border-color: #6c5ce7;
-  box-shadow: 0 10px 30px rgba(108, 92, 231, 0.25);
+  transform: rotateX(5deg) rotateY(-5deg) translateY(-8px);
+  box-shadow: 0 20px 40px rgba(108, 92, 231, 0.3);
+}
+
+/* CARD TEXT */
+.card h3 {
+  color: var(--secondary);
+  margin-bottom: 10px;
+}
+
+.card p {
+  opacity: 0.85;
+  font-size: 0.9rem;
 }
 
 /* RECIPE PAGE */
 .recipe {
-  background: rgba(20, 26, 42, 0.7);
+  max-width: 800px;
+  margin: 40px auto;
+  background: var(--glass);
   backdrop-filter: blur(14px);
-  padding: 25px;
-  border-radius: 16px;
-  border: 1px solid rgba(108, 92, 231, 0.2);
-  box-shadow: 0 0 40px rgba(108, 92, 231, 0.08);
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid rgba(108, 92, 231, 0.25);
+  box-shadow: 0 0 40px rgba(108, 92, 231, 0.1);
 }
 
 .recipe h2 {
-  color: #a29bfe;
+  color: var(--secondary);
   margin-top: 20px;
-  font-size: 1.3rem;
-  text-shadow: 0 0 8px rgba(162, 155, 254, 0.3);
 }
 
-/* LISTS */
-ul {
-  margin-left: 20px;
-  margin-top: 10px;
-}
-
-ul li {
-  margin-bottom: 6px;
-  opacity: 0.9;
-}
-
-/* BACK BUTTON */
+/* BUTTON */
 .back {
   display: inline-block;
   margin-top: 25px;
-  padding: 10px 16px;
+  padding: 10px 18px;
   border-radius: 10px;
   background: linear-gradient(135deg, #6c5ce7, #a29bfe);
   color: white;
   text-decoration: none;
-  font-size: 0.9rem;
   transition: 0.3s;
-  box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
 }
 
 .back:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(108, 92, 231, 0.5);
-}
-
-/* EXTRA SPACE UTILIZATION */
-/* subtle floating background particles effect */
-body::after {
-  content: "";
-  position: fixed;
-  width: 200%;
-  height: 200%;
-  top: -50%;
-  left: -50%;
-  background: radial-gradient(circle, rgba(108, 92, 231, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-  animation: moveBg 30s linear infinite;
-  z-index: -1;
-}
-
-@keyframes moveBg {
-  from {
-    transform: translate(0, 0);
-  }
-  to {
-    transform: translate(40px, 40px);
-  }
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(108, 92, 231, 0.4);
 }
