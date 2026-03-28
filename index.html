@@ -9,51 +9,68 @@
 
 <body>
 
-  <header>
-    <h1>🍽️ DelFoods</h1>
-    <p>Choose a recipe to open</p>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">🍽️ DelFoods</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Recipes</a>
+      <a href="#">Favorites</a>
+    </div>
+  </nav>
+
+  <!-- HERO / HEADER -->
+  <header class="hero">
+    <h1>Discover Delicious Recipes</h1>
+    <p>Simple, tasty, and made for everyone</p>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search recipes..." />
+      <button>🔍</button>
+    </div>
   </header>
 
+  <!-- MAIN CONTENT -->
   <main class="container">
 
     <a class="card" href="./mac-and-cheese.html">
-      <img src="1000030317.png" alt="Mac and Cheese" class="recipe-img">
-      <h2>Mac & Cheese</h2>
-      <p>Creamy baked pasta with cheese sauce</p>
+      <img src="1000030317.png" alt="Mac and Cheese">
+      <div class="card-content">
+        <h2>Mac & Cheese</h2>
+        <p>Creamy baked pasta with rich cheese sauce</p>
+      </div>
     </a>
 
     <a class="card" href="./seared-fish.html">
-      <img src="1000030315.png" alt="Seared Fish Fillet" class="recipe-img">
-      <h2>Seared Fish Fillet</h2>
-      <p>Crispy outside, tender inside</p>
+      <img src="1000030315.png" alt="Seared Fish Fillet">
+      <div class="card-content">
+        <h2>Seared Fish Fillet</h2>
+        <p>Crispy outside, tender inside</p>
+      </div>
     </a>
 
     <a class="card" href="./chocolate-cake.html">
-      <img src="1000030313.png" alt="Chocolate Cake" class="recipe-img">
-      <h2>Chocolate Cake</h2>
-      <p>Rich, moist chocolate dessert</p>
+      <img src="1000030313.png" alt="Chocolate Cake">
+      <div class="card-content">
+        <h2>Chocolate Cake</h2>
+        <p>Rich, moist chocolate dessert</p>
+      </div>
     </a>
 
     <a class="card" href="./pan-seared-chicken.html">
-      <img src="1000030314.png" alt="Pan Seared Chicken" class="recipe-img">
-      <h2>Pan Seared Chicken</h2>
-      <p>Golden crust, juicy inside</p>
+      <img src="1000030314.png" alt="Pan Seared Chicken">
+      <div class="card-content">
+        <h2>Pan Seared Chicken</h2>
+        <p>Golden crust, juicy inside</p>
+      </div>
     </a>
 
   </main>
 
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 DelFoods — All rights reserved</p>
+  </footer>
+
 </body>
 </html>
-<nav class="navbar">
-  <div class="logo">RecipeX</div>
-  <div class="nav-links">
-    <a href="#">Home</a>
-    <a href="#">Recipes</a>
-    <a href="#">Favorites</a>
-  </div>
-</nav>
-
-<div class="search-box">
-  <input type="text" placeholder="Search recipes..." />
-  <button>Search</button>
-</div>
