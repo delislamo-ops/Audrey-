@@ -2,101 +2,151 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Ultimate Mac & Cheese</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Inline styles to ensure the fade effect works immediately */
-    .recipe-hero {
-      position: relative;
-      width: 100%;
-      height: 400px;
-      overflow: hidden;
-      background: #1a1a1a;
+    :root {
+      --bg-color: #0f0f0f; /* Match this to your home page background */
+      --accent: #ffb400;
+      --text: #ffffff;
     }
 
-    .recipe-hero img {
+    body {
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* The Image Blend Container */
+    .image-header {
+      width: 100%;
+      height: 450px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .image-header img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      /* The initial "Cool" entrance */
-      animation: fadeInScale 1.8s ease-out;
+      display: block;
+      /* This creates the blend/fade effect at the bottom */
+      mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
     }
 
-    /* The Fade-Away Gradient Overlay */
-    .recipe-hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 150px;
-      background: linear-gradient(to bottom, transparent, #1a1a1a);
-    }
-
-    @keyframes fadeInScale {
-      0% { opacity: 0; transform: scale(1.1); filter: blur(5px); }
-      100% { opacity: 1; transform: scale(1); filter: blur(0); }
-    }
-
-    .recipe-content {
-      padding: 40px 20px;
+    .recipe-container {
       max-width: 800px;
-      margin: 0 auto;
+      margin: -60px auto 0; /* Pulls text up slightly into the fade */
+      padding: 0 20px 100px;
+      position: relative;
+      z-index: 2;
     }
 
-    .step-number {
-      color: #e67e22;
+    h1 {
+      font-size: 3.5rem;
+      margin: 0;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
+
+    .recipe-meta {
+      color: #888;
+      margin-bottom: 40px;
+      font-weight: bold;
+    }
+
+    .ingredient-section {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 15px;
+      margin-bottom: 40px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    ul li::before {
+      content: "•";
+      color: var(--accent);
       font-weight: bold;
       margin-right: 10px;
     }
+
+    .steps p {
+      line-height: 1.8;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      color: #ddd;
+    }
+
+    .step-num {
+      color: var(--accent);
+      font-weight: 800;
+      display: block;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 50px;
+      color: #888;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-bottom: 1px solid var(--accent);
+    }
   </style>
 </head>
+<body>
 
-<body style="margin:0; background:#1a1a1a; color:#eee; font-family: sans-serif;">
-
-  <div class="recipe-hero">
-    <img src="Bluetooth/Picsart_26-03-26_14-47-04-099.png" alt="Golden Mac and Cheese">
+  <div class="image-header">
+    <img src="Bluetooth/Picsart_26-03-26_14-47-04-099.png" alt="Delicious Mac and Cheese">
   </div>
 
-  <div class="recipe-content">
+  <div class="recipe-container">
     <header>
-      <h1 style="font-size: 3rem; margin-bottom: 10px;">The Ultimate Mac & Cheese</h1>
-      <p style="color: #999; font-style: italic;">Extra creamy, triple-cheese, and baked to perfection.</p>
+      <h1>Mac & Cheese</h1>
+      <p class="recipe-meta">PREP: 15 MINS | COOK: 30 MINS | SERVES: 4-6</p>
     </header>
 
-    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
-
-    <h2>Ingredients</h2>
-    <ul style="column-count: 2; list-style-type: square; color: #ccc;">
-      <li>16 oz Elbow Macaroni</li>
-      <li>1/2 cup Unsalted Butter</li>
-      <li>1/2 cup All-purpose Flour</li>
-      <li>3 cups Whole Milk</li>
-      <li>1 cup Heavy Cream</li>
-      <li>4 cups Sharp Cheddar (grated)</li>
-      <li>2 cups Gruyère Cheese</li>
-      <li>1 tsp Smoked Paprika</li>
-      <li>Salt & Black Pepper</li>
-      <li>Panko Breadcrumbs (for topping)</li>
-    </ul>
-
-    <h2>The Process</h2>
-    <div class="steps" style="line-height: 1.8;">
-      <p><span class="step-number">01.</span> <strong>Prep the Pasta:</strong> Boil the macaroni in heavily salted water. Aim for "slightly underdone" (about 2 minutes less than the box says). They will finish cooking in the oven.</p>
-      
-      <p><span class="step-number">02.</span> <strong>The Golden Roux:</strong> Melt butter in a large pot over medium heat. Whisk in the flour and cook for 2 minutes until it smells like toasted cookies. This prevents a "floury" taste.</p>
-      
-      <p><span class="step-number">03.</span> <strong>Build the Sauce:</strong> Slowly pour in the milk and heavy cream while whisking constantly. Simmer until the sauce is thick enough to coat the back of a spoon.</p>
-      
-      <p><span class="step-number">04.</span> <strong>The Melt:</strong> Turn off the heat. Stir in 5 cups of the cheese (save 1 cup for the top) until the sauce is a smooth, velvet river of gold.</p>
-      
-      <p><span class="step-number">05.</span> <strong>The Bake:</strong> Fold the pasta into the sauce. Pour into a baking dish, top with remaining cheese and panko. Bake at 375°F for 20 minutes until the top is bubbling and crispy.</p>
+    <div class="ingredient-section">
+      <h2>What You'll Need</h2>
+      <ul>
+        <li>1lb Cavatappi or Elbow Pasta</li>
+        <li>1/2 cup Salted Butter</li>
+        <li>1/2 cup All-Purpose Flour</li>
+        <li>3 cups Whole Milk</li>
+        <li>1 cup Heavy Cream</li>
+        <li>4 cups Sharp White Cheddar</li>
+        <li>2 cups Smoked Gouda</li>
+        <li>1 tbsp Garlic Powder</li>
+        <li>1 tsp Smoked Paprika</li>
+        <li>Salt & Pepper to taste</li>
+      </ul>
     </div>
 
-    <div style="margin-top: 50px;">
-      <a href="index.html" class="back" style="color: #e67e22; text-decoration: none;">⬅ Back to Home</a>
-    </div>
-  </div>
+    <div class="steps">
+      <h2>The Process</h2>
+      
+      <p>
+        <span class="step-num">Step 01</span>
+        <strong>The Al Dente Foundation:</strong> Bring a large pot of heavily salted water to a rolling boil. Cook your pasta for exactly 2 minutes less than the package instructions. It should be slightly firm to the bite; it will soften perfectly later in the oven. Drain and set aside.
+      </p>
 
-</body>
-</html>
+      <p>
+        <span class="step-num">Step 02</span>
+        <strong>The Velvety Roux:</strong> In a heavy-bottomed saucepan, melt the butter over medium heat. Whisk in the flour constantly for 2-3 minutes. You're looking for a
