@@ -1,83 +1,125 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
+  <title>Premium Mac & Cheese</title>
+  <style>
+    /* This section makes it look like your home page */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #121212; /* Dark theme like home page */
+      color: #eeeeee;
+      font-family: 'Segoe UI', sans-serif;
+    }
 
-<meta charset="UTF-8">
+    /* 1. THE IMAGE SECTION */
+    .hero-box {
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      position: relative;
+    }
 
-<title>Mac & Cheese</title>
+    .hero-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Keeps the photo from stretching */
+      display: block;
+    }
 
-<link rel="stylesheet" href="style.css">
+    /* 2. THE COOL FADE (Blends the bottom of the photo into the black page) */
+    .hero-box::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: linear-gradient(to bottom, transparent, #121212);
+    }
 
+    .container {
+      max-width: 800px;
+      margin: -40px auto 50px; /* Pulls text up into the fade */
+      padding: 20px;
+      position: relative;
+    }
+
+    h1 { color: #f39c12; font-size: 3rem; margin-bottom: 5px; }
+    h2 { color: #f39c12; border-bottom: 1px solid #333; padding-bottom: 10px; }
+    
+    .ingredient-list { column-count: 2; line-height: 2; }
+    .instructions { line-height: 1.8; font-size: 1.1rem; }
+    .step-box { margin-bottom: 30px; }
+    .step-label { color: #f39c12; font-weight: bold; text-transform: uppercase; display: block; }
+
+    .back-btn {
+      text-decoration: none;
+      color: #888;
+      display: inline-block;
+      margin-top: 40px;
+      transition: 0.3s;
+    }
+    .back-btn:hover { color: #f39c12; }
+  </style>
 </head>
-
-
-
 <body>
 
+  <div class="hero-box">
+    <img src="Bluetooth/Picsart_26-03-26_14-47-04-099.png" alt="Mac n Cheese Image">
+  </div>
 
+  <div class="container">
+    <h1>Classic Mac & Cheese</h1>
+    <p style="color: #888;">Creamy, dreamy, and baked to golden perfection.</p>
 
-<header>
+    <h2>Ingredients</h2>
+    <div class="ingredient-list">
+      <ul>
+        <li>16oz Elbow Macaroni</li>
+        <li>1/2 cup Butter</li>
+        <li>1/2 cup Flour</li>
+        <li>3 cups Whole Milk</li>
+        <li>1 cup Heavy Cream</li>
+        <li>4 cups Sharp Cheddar</li>
+        <li>2 cups Gruyere</li>
+        <li>1 tsp Smoked Paprika</li>
+        <li>1 tsp Garlic Powder</li>
+        <li>Salt & Black Pepper</li>
+      </ul>
+    </div>
 
-<h1>Mac & Cheese</h1>
+    <h2>The Instructions</h2>
+    <div class="instructions">
+      <div class="step-box">
+        <span class="step-label">Step 1: The Pasta</span>
+        Boil your pasta in heavily salted water. Cook it for 2 minutes less than the box says (Al Dente). It needs to be firm because it will soak up sauce in the oven later.
+      </div>
 
-</header>
+      <div class="step-box">
+        <span class="step-label">Step 2: The Roux</span>
+        In a large pot, melt the butter over medium heat. Whisk in the flour and cook for about 2 minutes. This creates a "roux" which thickens the sauce and makes it professional-grade.
+      </div>
 
+      <div class="step-box">
+        <span class="step-label">Step 3: The Cream</span>
+        Slowly pour in the milk and heavy cream while whisking. Keep stirring until it thickens up enough to coat the back of a spoon. Turn the heat to low.
+      </div>
 
+      <div class="step-box">
+        <span class="step-label">Step 4: The Cheese</span>
+        Add 5 cups of the shredded cheese and all your spices. Stir until it's a smooth, cheesy liquid. Fold in your cooked pasta until every noodle is covered.
+      </div>
 
-<div class="container recipe">
+      <div class="step-box">
+        <span class="step-label">Step 5: The Bake</span>
+        Pour everything into a baking dish. Sprinkle the last cup of cheese on top. Bake at 375°F for 20 minutes until the top is bubbling and slightly crispy.
+      </div>
+    </div>
 
-
-
-<h2>Ingredients</h2>
-
-<ul>
-
-<li>Pasta</li>
-
-<li>Butter</li>
-
-<li>Flour</li>
-
-<li>Milk</li>
-
-<li>Cheddar cheese</li>
-
-<li>Salt & pepper</li>
-
-</ul>
-
-
-
-<h2>Steps</h2>
-
-<p>
-
-Boil pasta in salted water until al dente.
-
-In a pot, melt butter, add flour and cook until paste forms.
-
-Slowly add milk while stirring until smooth.
-
-Add cheese and melt until creamy.
-
-Mix with pasta and bake for extra texture.
-
-</p>
-
-
-
-<a href="index.html" class="back">⬅ Back</a>
-
-
-
-</div>
-
-
+    <a href="index.html" class="back-btn">⬅ Back to Home Page</a>
+  </div>
 
 </body>
-
 </html>
-        <span class="step-num">Step 02</span>
-        <strong>The Velvety Roux:</strong> In a heavy-bottomed saucepan, melt the butter over medium heat. Whisk in the flour constantly for 2-3 minutes. You're looking for a
