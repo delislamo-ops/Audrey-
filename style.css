@@ -118,3 +118,25 @@ h2 {
   );
   pointer-events: none;
 }
+.footer {
+  background-color: #0d0d0d;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 50px;
+  border-top: 1px solid #222;
+}
+
+.footer p {
+  margin: 10px 0;
+  color: #aaa;
+}
+
+.footer a {
+  color: #f39c12;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
