@@ -11,12 +11,33 @@
   <meta name="author" content="DelFoods">
 
   <style>
-    body {font-family: Arial; background:#f1f2f6; margin:0;}
+    body {font-family: Arial; background:#f1f2f6; margin:0; transition:0.3s;}
+    .dark {background:#1e272e; color:white;}
+
     .navbar {display:flex;justify-content:space-between;padding:15px;background:#fff;}
+    .dark .navbar {background:#2f3640;}
+
     .logo {color:#ff4757;font-weight:bold;}
     .nav-links a {margin-left:10px;text-decoration:none;color:#333;font-weight:600;}
+    .dark .nav-links a {color:white;}
 
     .hero {text-align:center;padding:60px;background:#333;color:white;}
+
+    .controls {text-align:center; margin:20px;}
+    .controls input {
+      padding:10px;
+      width:60%;
+      max-width:300px;
+      border-radius:8px;
+      border:1px solid #ccc;
+    }
+    .controls button {
+      padding:10px;
+      margin-left:10px;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+    }
 
     .container {
       display:grid;
@@ -34,10 +55,22 @@
       box-shadow:0 4px 10px rgba(0,0,0,0.1);
     }
 
-    .card img {width:100%;height:150px;object-fit:cover;}
+    .dark .card {background:#2f3640;}
 
+    .card img {width:100%;height:150px;object-fit:cover;}
     .card a {text-decoration:none;color:#333;}
+    .dark .card a {color:white;}
     .card h3 {padding:10px;}
+
+    .section {
+      max-width:900px;
+      margin:40px auto;
+      padding:20px;
+      background:white;
+      border-radius:10px;
+    }
+
+    .dark .section {background:#2f3640;}
 
     footer {
       text-align:center;
@@ -56,9 +89,9 @@
 <div class="navbar">
   <div class="logo">🍽️ DelFoods</div>
   <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
   </div>
 </div>
 
@@ -67,71 +100,46 @@
   <p>Simple homemade meals</p>
 </div>
 
-<div class="container">
+<!-- SEARCH + DARK MODE -->
+<div class="controls">
+  <input type="text" id="search" placeholder="Search recipes...">
+  <button onclick="toggleDark()">🌙 Toggle Mode</button>
+</div>
 
-  <div class="card">
-    <a href="mac-and-cheese.html">
-      <img src="image/mac.png">
-      <h3>Mac & Cheese</h3>
-    </a>
-  </div>
+<!-- RECIPES (UNCHANGED) -->
+<div class="container" id="recipes">
 
-  <div class="card">
-    <a href="seared-fish.html">
-      <img src="image/fish.png">
-      <h3>Fish Fillet</h3>
-    </a>
-  </div>
+  <div class="card"><a href="mac-and-cheese.html"><img src="image/mac.png"><h3>Mac & Cheese</h3></a></div>
+  <div class="card"><a href="seared-fish.html"><img src="image/fish.png"><h3>Fish Fillet</h3></a></div>
+  <div class="card"><a href="chocolate-cake.html"><img src="image/cake.png"><h3>Chocolate Cake</h3></a></div>
+  <div class="card"><a href="pan-seared-chicken.html"><img src="image/chicken.jpg"><h3>crispy Chicken thighs</h3></a></div>
+  <div class="card"><a href="roasted-chick.html"><img src="image/roasted.png"><h3>roasted chicken</h3></a></div>
+  <div class="card"><a href="shawarma.html"><img src="image/shawarma.png"><h3>Chicken Shawarma</h3></a></div>
+  <div class="card"><a href="burger.html"><img src="image/burger.png"><h3>Smash Burger</h3></a></div>
+  <div class="card"><a href="spaghetti.html"><img src="image/spaghetti.png"><h3>Spaghetti</h3></a></div>
+  <div class="card"><a href="mashed-potatoes.html"><img src="image/potatoes.png"><h3>Mashed Potatoes</h3></a></div>
 
-  <div class="card">
-    <a href="chocolate-cake.html">
-      <img src="image/cake.png">
-      <h3>Chocolate Cake</h3>
-    </a>
-  </div>
+</div>
 
-  <div class="card">
-    <a href="pan-seared-chicken.html">
-      <img src="image/chicken.jpg">
-      <h3>crispy Chicken thighs</h3>
-    </a>
-  </div>
+<!-- ABOUT SECTION -->
+<div class="section" id="about">
+  <h2>About This Project</h2>
+  <p>
+    This website was built as a modern responsive recipe platform using HTML, CSS, and JavaScript.
+    It showcases UI design, responsiveness, and interactive features like search and dark mode.
+  </p>
+  <p><strong>Created by:</strong> Islam</p>
+</div>
 
-  <div class="card">
-    <a href="roasted-chick.html">
-      <img src="image/roasted.png">
-      <h3>roasted chicken</h3>
-    </a>
-  </div>
-
-  <div class="card">
-    <a href="shawarma.html">
-      <img src="image/shawarma.png">
-      <h3>Chicken Shawarma</h3>
-    </a>
-  </div>
-
-  <div class="card">
-    <a href="burger.html">
-      <img src="image/burger.png">
-      <h3>Smash Burger</h3>
-    </a>
-  </div>
-
-  <div class="card">
-    <a href="spaghetti.html">
-      <img src="image/spaghetti.png">
-      <h3>Spaghetti</h3>
-    </a>
-  </div>
-
-  <div class="card">
-    <a href="mashed-potatoes.html">
-      <img src="image/potatoes.png">
-      <h3>Mashed Potatoes</h3>
-    </a>
-  </div>
-
+<!-- CONTACT SECTION -->
+<div class="section" id="contact">
+  <h2>Contact Me</h2>
+  <form onsubmit="sendMessage(event)">
+    <input type="text" placeholder="Your Name" required style="width:100%;padding:10px;margin:5px 0;">
+    <input type="email" placeholder="Your Email" required style="width:100%;padding:10px;margin:5px 0;">
+    <textarea placeholder="Your Message" required style="width:100%;padding:10px;margin:5px 0;"></textarea>
+    <button type="submit" style="padding:10px 20px;">Send</button>
+  </form>
 </div>
 
 <footer>
@@ -139,6 +147,31 @@
   <p>Email: delislamo@gmail.com | Phone: +213783311030</p>
   <a href="privacy.html">Privacy Policy</a>
 </footer>
+
+<script>
+  // SEARCH FUNCTION
+  const searchInput = document.getElementById("search");
+  searchInput.addEventListener("keyup", function() {
+    let filter = searchInput.value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+      let text = card.innerText.toLowerCase();
+      card.style.display = text.includes(filter) ? "" : "none";
+    });
+  });
+
+  // DARK MODE
+  function toggleDark() {
+    document.body.classList.toggle("dark");
+  }
+
+  // FAKE CONTACT (for demo)
+  function sendMessage(e) {
+    e.preventDefault();
+    alert("Message sent! (Demo only)");
+  }
+</script>
 
 </body>
 </html>
